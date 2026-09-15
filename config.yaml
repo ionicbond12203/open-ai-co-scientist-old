@@ -1,0 +1,57 @@
+# Configuration file for proposal-gen-v1.py
+
+# OpenAI API Key (REQUIRED)
+# Obtain an API key from OpenRouter (https://openrouter.ai) and set it as an environment variable:
+#   export OPENROUTER_API_KEY=your_api_key
+# Or, you can paste your key directly below (not recommended for production):
+#openai_api_key: ""
+
+# LLM backend. Set LLM_PROVIDER=lm_studio in .env to use a local/remote
+# LM Studio server instead of OpenRouter.
+llm_provider: "openrouter"
+
+# OpenAI-compatible API base URLs
+openrouter_base_url: "https://openrouter.ai/api/v1"
+lm_studio_base_url: "http://100.117.90.5:1234/v1"
+lm_studio_request_timeout_seconds: 300
+lmstudio_connect_timeout_seconds: 10
+lm_studio_enable_fallback: false
+
+# Optional LM Studio default. When empty, the UI selects the smallest model
+# reported by LM Studio's /models endpoint.
+lm_studio_model: "qwen/qwen3.8-27b"
+
+# LLM Model. Use a compact free default so the public Hugging Face demo can
+# finish a full multi-call cycle within its UI timeout. If this one is delisted,
+# rate-limited, or too slow, call_llm auto-falls back to other live free models.
+llm_model: "meta-llama/llama-3.2-3b-instruct:free"
+
+# Number of hypotheses to generate
+num_hypotheses: 4
+
+# Per-provider request timeout. Keeps slow free endpoints from consuming the
+# whole Gradio cycle budget before fallback can try another model.
+llm_request_timeout_seconds: 30
+
+# Elo K-factor
+elo_k_factor: 32
+
+# Top K hypotheses for evolution
+top_k_hypotheses: 2
+
+# Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+logging_level: "INFO"
+
+# Base log file name (without extension)
+log_file_name: "app"
+
+# FastAPI host
+fastapi_host: "0.0.0.0"
+
+# FastAPI port
+fastapi_port: 8000
+
+# Temperature settings for each step
+step_temperatures:
+  generation: 0.7
+  reflection: 0.5

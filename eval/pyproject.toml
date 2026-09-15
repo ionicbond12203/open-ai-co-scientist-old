@@ -1,0 +1,25 @@
+[project]
+name = "co-scientist-hypothesis-eval"
+version = "0.1.0"
+description = "Reproducible DeepEval comparison of AI Co-Scientist hypotheses"
+requires-python = ">=3.13"
+dependencies = [
+    "deepeval==4.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==8.4.2",
+    "ruff==0.12.12",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+

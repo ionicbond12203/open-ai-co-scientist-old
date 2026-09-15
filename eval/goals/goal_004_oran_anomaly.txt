@@ -1,0 +1,2 @@
+Develop a real-time anomaly detector for Open-RAN architectures that spots and blocks malicious, rogue network apps
+
